@@ -1,0 +1,113 @@
+﻿@model eSmash.Models.AccountVals
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - eSmash</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+           .logoAccelya{
+    width: 30px;
+    }
+           .splus{
+    width: 150px;
+    }
+           .padding-top-10 {
+               padding-top:10px
+
+           }
+           .liQlik{
+               text-align:center;
+               
+           }
+
+           .headerContainer{
+
+               max-width: 100% !important;
+           }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container headerContainer">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/content/image/accelya_hub_small.png" alt="Accelya" class="logoAccelya padding-top-10" />
+                <img src="~/content/image/esmash_plus.png" class="splus padding-top-10"/>
+               <span>@Html.DisplayFor(model => model.acounts.First().titulo)-@Html.DisplayFor(model => model.acounts.First().descripcion)</span>
+            </div>
+            <div style="float:right;" class="navbar-collapse collapse">
+                
+                <ul style="height:100%;" class="nav navbar-nav">
+                    @{
+                        if (@Model.ISA)
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px; width: 150px" value="">Industry  <br /> Sales</button></li>
+                        }
+                        else
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px; width: 150px" value="" disabled>Industry  <br /> Sales</button></li>
+                        }
+
+
+                        if (@Model.IFSA)
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px;width: 150px" value="">Industry <br />Forward Slaes</button></li>
+                        }
+                        else
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px;width: 150px" value=""disabled>Industry <br />Forward Slaes</button></li>
+                        }
+
+
+                        if (@Model.ASA)
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px;width: 150px" value="">Airlanes <br /> Sales</button></li>
+                        }
+                        else
+                        {
+                            <li class="liQlik"><button style="margin-left:0; height:66px;width: 150px" value=""disabled>Airlanes <br /> Sales</button></li>
+                        }
+
+
+                        if (@Model.AFSA)
+                        {
+                            <li class="liQlik"><button style="margin-right:0; height:66px;width: 150px" value="">Airlanes <br />Forward Sales</button></li>
+                        }
+                        else
+                        {
+                            <li class="liQlik"><button style="margin-right:0; height:66px;width: 150px" value=""disabled>Airlanes <br />Forward Sales</button></li>
+                        }
+                    }
+
+                    
+                    
+                    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Accelya. All rights reserved.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

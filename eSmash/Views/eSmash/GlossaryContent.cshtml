@@ -1,0 +1,55 @@
+﻿<!--
+    IMPORTANTE: esto es solo un ejemplo NO PUEDE SER UTILIZADO PARA DRODUCCIÓN.
+
+    En este ejemplo los datos van a ser cargados en cada página sean necesarios
+    penalizando negativamente la carga de la página. Para producción este
+    contenido debería cargarse dinámicamente con AJAX cuando realmente sea
+    requerido.
+-->
+@{
+    
+    var glossary = new Dictionary<string, string>();
+    
+    glossary.Add("ACTUAL AMOUNT", "Amount of sales today.");
+    glossary.Add("BUDGET $", "Amount of budget.");
+    glossary.Add("BUDGET %", "Difference about sales budget amount and sales amount.");
+    glossary.Add("BUDGET", "It is called the calculation and anticipated budget trading income and expenses of an economic activity during period.");
+    glossary.Add("MARGIN %", "Difference about sales margin amount and sales amount.");
+    glossary.Add("MARGIN AMOUNT", "Profit margin between the sale price and the purchase Price.");
+    glossary.Add("REVENUE", "Amount about the sales quantity and the sales price.");
+    glossary.Add("SALES $", "Amount of sales.");
+    glossary.Add("SALES PRICE", "The money to be paid by the consumer to buy a product.");
+    glossary.Add("SALES QUANTITY", "Amount on the number of sales reported.");
+    glossary.Add("SALES VS BUDGET %", "Difference about budget amount and  actual amount.");
+    glossary.Add("SALES", "Transfer of ownership of property to another person upon payment of the agreed price.");
+}
+<div id="glossary-search">
+
+    <form class="center-block">
+        <div class="input-group">
+            <input type="text" class="search form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-default clear-input" type="button"><span class="fa fa-times"></span></button>
+            </span>
+        </div>
+    </form>
+
+    <div class="glossary-content">
+        <ul class="list list-unstyled">
+            @foreach (var term in glossary)
+            {
+                <li>
+                    <h4 class="glossary-term">@term.Key</h4>
+                    <p class="glossary-content">
+                        @term.Value
+                    </p>
+                </li>
+            }
+        </ul>
+    </div><!-- glossary-content -->
+
+    <div class="text-center">
+        <em class="no-result text-mutted not-displayed h4">No Result</em>
+    </div>
+
+</div>

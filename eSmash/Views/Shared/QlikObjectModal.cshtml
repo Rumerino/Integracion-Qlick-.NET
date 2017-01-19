@@ -1,0 +1,12 @@
+﻿@model QlikSense.QlikVisualization
+@{
+    var modalBody = String.Format(
+        "<div class=\"qlik-graph-tall\" data-qlik-object=\"{0}\"></div>",
+        @Model.Id);
+
+    var modalValues = new eSmash.Models.View.Modal(
+        "qlik-modal", @Model.Title, modalBody);
+    modalValues.HtmlClass = "modal-lg";
+}
+
+@Html.Partial("~/Views/Shared/Modal.cshtml", modalValues)

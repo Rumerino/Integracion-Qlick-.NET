@@ -1,0 +1,350 @@
+﻿@{
+    ViewBag.Title = "market";
+    Layout = "~/Views/Shared/demo2.cshtml";
+}
+@section intro_header {
+    @*@Html.Partial("~/Views/Demo3/IntroHeader.cshtml", description)*@
+}
+@section modal {
+    @Html.Partial("~/Views/Shared/DataExportModal.cshtml")
+}
+
+<style>
+
+    .headerContainer{
+        background-color: #F6F6F6;
+    }
+
+    .modal-backdrop {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        z-index: 1 !important;
+        background-color: #000 !important;
+    }
+
+        .modal-backdrop.in {
+            filter: alpha(opacity=50) !important;
+            opacity: .12 !important;
+        }
+
+    #qlik-filters-menu {
+        opacity: .8 !important;
+        z-index: 2 !important;
+        background-color: white;
+        margin-top : 20px !important;
+    }
+    .qv-object-simple-list{
+        height: auto !important;
+        margin-top : 10px !important;
+        margin-bottom : 10px !important;
+
+    }
+    .filter-panel-vertical {
+        opacity: 1 !important;
+        z-index: 1024 !important;
+        background-color: white;
+        margin-top : 20px !important;
+    }
+
+    .qv-object-qsstatistic .ui.tiny.horizontal.statistic > .value, .qv-object-qsstatistic .ui.tiny.horizontal.statistics .statistic > .value, .qv-object-qsstatistic .ui.tiny.statistic > .value, .qv-object-qsstatistic .ui.tiny.statistics .statistic > .value {
+        font-size: 3rem !important;
+    }
+
+    .qv-object-qsstatistic .ui.mini.horizontal.statistic > .value, .qv-object-qsstatistic .ui.mini.horizontal.statistics .statistic > .value, .qv-object-qsstatistic .ui.mini.statistic > .value, .qv-object-qsstatistic .ui.mini.statistics .statistic > .value {
+        font-size: 2.7rem !important;
+    }
+
+    .qv-object-qsstatistic .ui.small.statistic > .value, .qv-object-qsstatistic .ui.small.statistics .statistic > .value {
+        font-size: 4rem !important;
+    }
+    #bodyQlikRender{
+        margin-top: 0px !important
+    }
+
+    form {
+	margin: 40px 0;
+    }
+        .container-fluid{
+        padding-top:0px !important
+    }
+
+
+
+</style>
+<div class="row" style="margin-top:4%">
+
+    <div class="hidden-xs hidden-sm col-lg-4 col-md-4 col-sm-6">
+        @Html.Partial("~/Views/IFSA/NavBarSelectionTools.cshtml")
+    </div>
+    <div class="col-lg-offset-6 col-md-offset-6 hidden-sm col-lg-2 col-md-2 col-sm-6">
+        <ul style="display: inline-flex;">
+
+            <li class="liQlik"><button onclick="cambiarISA()" id="SalesQlik" style="margin-left:0; height:30px; width: 75px">Issue Year</button></li>
+
+            <li class="liQlik"><button onclick="cambiarIFSA()" id="FligthQlik" style="margin-left:0; height:30px; width: 75px">Flight Year</button></li>
+
+        </ul>
+        <p hidden id="SalesFligth">1</p>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-2.2.3.js"></script>
+
+<div id="ContainerQlik">
+
+    
+</div>
+
+<script>
+    $(document).ready(function () {
+        
+
+        selected();
+        comprobar("Market", $("#SalesFligth").val());
+ 
+    });
+    function selected() {
+
+        if ($("#SalesFligth").text() == "0") {
+            $('#SalesQlik').css('background', 'rgb(70, 198, 70)');
+            $('#FligthQlik').css("background-color", "");
+
+        
+        } else {
+            $('#FligthQlik').css('background', 'rgb(70, 198, 70)');
+            $('#SalesQlik').css("background-color", "");
+         
+        }
+    }
+    $("#SalesQlik").click(function () {
+
+        $("#SalesFligth").text("0");
+        selected();
+    });
+    $("#FligthQlik").click(function () {
+  
+        $("#SalesFligth").text("1");
+        selected();
+    });
+    
+
+    
+
+    $("#sheetISA").change(function () {
+       
+        var sheet = "";
+        if ($("#sheetISA").val() == "Market") {
+            sheet = "Market"
+        } else {
+            if ($("#sheetISA").val() == "Passengers") {
+                sheet = "Passengers"
+            } else {
+                if ($("#sheetISA").val() == "Yield") {
+                    sheet = "Yield"
+                } else {
+                    if ($("#sheetISA").val() == "Revenue") {
+                        sheet = "Revenue"
+                    } else {
+                        if ($("#sheetISA").val() == "route") {
+                            sheet = "route"
+                        } else {
+                            if ($("#sheetISA").val() == "routepassenger") {
+                                sheet = "routepassenger"
+                            } else {
+                                if ($("#sheetISA").val() == "agentrpassenger") {
+                                    sheet = "agentrpassenger"
+                                } else {
+                                    if ($("#sheetISA").val() == "agentrevenue") {
+                                        sheet = "agentrevenue"
+                                    } else {
+                                        if ($("#sheetISA").val() == "classAnalysis") {
+                                            sheet = "classAnalysis"
+                                        } else {
+                                            if ($("#sheetISA").val() == "performance") {
+                                                sheet = "performance"
+                                            } else {
+                                                if ($("#sheetISA").val() == "reporting") {
+                                                    sheet = "reporting"
+                                                } else {
+                                                    if ($("#sheetISA").val() == "APAnalysis") {
+                                                        sheet = "APAnalysis"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        comprobar(sheet, $("#SalesFligth").val());
+
+    });
+
+    function front() {
+
+        var sheet = "";
+        if ($("#sheetISA").val() == "Market") {
+            sheet = "Passengers"
+        } else {
+            if ($("#sheetISA").val() == "Passengers") {
+                sheet = "Yield"
+            } else {
+                if ($("#sheetISA").val() == "Yield") {
+                    sheet = "Revenue"
+                } else {
+                    if ($("#sheetISA").val() == "Revenue") {
+                        sheet = "routepassenger"
+                    } else {
+                            if ($("#sheetISA").val() == "routepassenger") {
+                                sheet = "agentrpassenger"
+                            } else {
+                                if ($("#sheetISA").val() == "agentrpassenger") {
+                                    sheet = "APAnalysis"
+                                } else {
+                                    if ($("#sheetISA").val() == "APAnalysis") {
+                                        sheet = "agentrevenue"
+                                    } else {
+                                        if ($("#sheetISA").val() == "agentrevenue") {
+                                            sheet = "classAnalysis"
+                                        } else {
+                                            if ($("#sheetISA").val() == "classAnalysis") {
+                                                sheet = "performance"
+                                            } else {
+                                                if ($("#sheetISA").val() == "performance") {
+                                                    sheet = "reporting"
+                                                } 
+                                            }
+                                    
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+        
+        if (sheet != "") {
+            $("#sheetISA").val(sheet)
+             comprobar(sheet, $("#SalesFligth").val());
+        }
+
+    };
+
+    function back() {
+
+        var sheet = "";
+            if ($("#sheetISA").val() == "Passengers") {
+                sheet = "Market"
+            } else {
+                if ($("#sheetISA").val() == "Yield") {
+                    sheet = "Passengers"
+                } else {
+                    if ($("#sheetISA").val() == "Revenue") {
+                        sheet = "Yield"
+                    } else {
+                            if ($("#sheetISA").val() == "routepassenger") {
+                                sheet = "Revenue"
+                            } else {
+                                if ($("#sheetISA").val() == "agentrpassenger") {
+                                    sheet = "routepassenger"
+                                } else {
+                                    if ($("#sheetISA").val() == "APAnalysis") {
+                                        sheet = "agentrpassenger"
+                                    } else {
+                                        if ($("#sheetISA").val() == "agentrevenue") {
+                                            sheet = "APAnalysis"
+                                        } else {
+                                            if ($("#sheetISA").val() == "classAnalysis") {
+                                                sheet = "agentrevenue"
+                                            } else {
+                                                if ($("#sheetISA").val() == "performance") {
+                                                    sheet = "classAnalysis"
+                                                } else {
+                                                    if ($("#sheetISA").val() == "reporting") {
+                                                        sheet = "performance"
+                                                    }
+                                                }
+                                             }
+                                        }
+
+                                    }
+                                }
+                            
+                        }
+                    }
+                }
+            }
+        
+    
+            if (sheet != "") {
+                $("#sheetISA").val(sheet)
+            comprobar(sheet, $("#SalesFligth").val());
+        }
+
+    }
+
+    function comprobar(sheet, who) {
+        if(who=="0"){
+           var controler = "ISA"
+        } else {
+            var controler = "IFSA"
+
+        }
+        $.ajax({
+            type: "GET",
+            url: "/eSmashNew/IFSA/" + sheet,
+            //url: "/IFSA/" + sheet,
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (data) {
+                //$('ContainerQlik').html(data);
+                document.getElementById("ContainerQlik").innerHTML = "";
+
+                document.getElementById("ContainerQlik").innerHTML = data ;
+            @*QlikSession.setHtmlElementWithTicket('<img src="@(Model.url)/content/Default/trigger.png?QlikTicket=@Model.ticket" />');*@
+            $('#ContainerQlik').trigger('qlik.ui.show');
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            },
+            traditional: true
+        });
+    }
+    function selected() {
+
+        if ($("#SalesFligth").text() == "0") {
+
+            $('#SalesQlik').css('background', 'rgb(70, 198, 70)');
+            $('#FligthQlik').css("background-color", "");
+        } else {
+            $('#FligthQlik').css('background', 'rgb(70, 198, 70)');
+            $('#SalesQlik').css("background-color", "");
+        }
+    }
+
+    function clikSales() {
+
+        $("#SalesFligth").val("0");
+        selected();
+    }
+    function clikFlgth() {
+
+        $("#SalesFligth").val("1");
+        selected();
+    }
+
+ 
+</script>

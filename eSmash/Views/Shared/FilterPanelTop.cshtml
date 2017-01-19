@@ -1,0 +1,16 @@
+﻿@model QlikSense.QlikVisualization
+<div id="filter-panel" class="filter-panel-hidden">
+
+    <h4>Current selections</h4>
+
+    <div class="current-selection-panel" data-qlik-content="current-selections" data-qlik-template="#current-selection-template">@* este espacio debe estar vacío y sin salto de línea porque el "placeholder" se añade con CSS *@</div>
+
+    <div id="qlik-filter-panel" class="filter-panel-selector qlik-graph" data-qlik-object="@Model.Id"></div>
+
+    <div class="text-right">
+        <button type="button" class="btn btn-sm btn-danger clear-selections" data-qlik-action="clearall">
+            <span class="fa fa-remove"></span> Clear selections
+        </button>
+    </div>
+
+</div><!-- filter-panel -->

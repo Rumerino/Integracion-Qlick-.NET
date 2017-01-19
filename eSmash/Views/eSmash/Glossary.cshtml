@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+
+    var modalContent = Html.Partial("~/Views/ISA/GlossaryContent.cshtml");
+
+    var modalValues = new eSmash.Models.View.Modal(
+        "glossary-modal", "Glossary", modalContent);
+    modalValues.HtmlClass = "modal-lg";        
+}
+@Html.Partial("~/Views/Shared/Modal.cshtml", modalValues)

@@ -1,0 +1,278 @@
+﻿@model eSmash.Models.AccountVals
+@{
+    Layout = "~/Views/Shared/NavBarTop.cshtml";
+}
+@section page_sections {
+
+<style>
+    .logoAccelya {
+        width: 30px;
+        margin-right: 20px;
+    }
+
+    .splus {
+        width: 150px;
+        margin-right: 10px;
+    }
+
+    .padding-top-10 {
+        padding-top: 10px;
+    }
+
+    .liQlik {
+        text-align: center;
+    }
+
+    .headerContainer {
+        max-width: 100% !important;
+    }
+
+    .rounded {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+
+    .styled-select {
+        background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+        height: 29px;
+        overflow: hidden;
+        /*width: 300px;*/
+        margin-left: 19%;
+        margin-top: 15px;
+    }
+
+        .styled-select select {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            height: 29px;
+            width: 3064px;
+        }
+
+    .line {
+        display: inline-flex;
+    }
+
+    .yellow {
+        background-color: #eec111;
+    }
+
+        .yellow select {
+            color: #000;
+        }
+
+    #dropDownLayout {
+        display: inline-flex;
+        padding-top: 8px;
+        /*margin-left: 5%;*/
+    }
+
+  .headerMio {
+        height: 48px !important;
+    }
+
+    .redLine {
+        height: 43px !important;
+    }
+
+    .buttonarrow {
+        margin-left: 0;
+        height: 33px;
+        width: 30px;
+        margin-top: 7px;
+    }
+
+    .buttonAPPs {
+        margin-left: 0;
+        height: 49px;
+        width: 100px;
+        background-color: #f9f9f9;
+        border-width:1px;
+    }
+
+    .headvar {
+        height: 49px;
+        margin-top: 0px;
+        border-top-width: 0px;
+        padding-top: 0px;
+    }
+
+    .itemsheadvar {
+        padding-top: 0px;
+    }
+
+    .AccountBox {
+        background-color: #f9f9f9;
+        /*width: 150px;*/
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    .parrafacc {
+        font-size: 15px;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    .tamanioFa{
+          color: #BF1E2D;
+    }
+
+    .padding-rigth-0{
+        padding-right:0px !important
+    }
+</style>
+
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top redLine">
+    <div class="container headerContainer headerMio">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4">
+                <div class="navbar-header headvar">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="~/content/image/accelya_hub_logo.png" alt="Accelya" class="logoAccelya itemsheadvar" />
+                    <img src="~/content/image/esmash.png" class="splus itemsheadvar" />
+                    <div class="AccountBox line"><b class="parrafacc">@Html.DisplayFor(model => model.acounts.First().titulo)-@Html.DisplayFor(model => model.acounts.First().descripcion)</b></div>
+                    <a href="@Url.Action("appAccount", "eSmash", new { })"><i class="fa fa-external-link-square tamanioFa" rel="tooltip" title="Change account" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-md-8">
+
+          
+                    <div class="col-lg-4 col-sm-4 col-md-4">
+                        <div class="col-lg-9 col-sm-9 col-md-9">
+                            <div class="isaClass line" id="dropDownLayout">
+                                <select id="sheetISA" class="form-control sheetISA">
+                                    <option value="Market">Market & Trends - Revenue</option>
+                                    <option value="Passengers">Market & Trends – Passengers</option>
+                                    <option value="Yield">Market & Trends - Yield</option>
+                                    <option value="Revenue">Route Analysis - Revenue</option>
+                                    <option value="routepassenger">Route Analysis - Pax</option>
+                                    <option value="agentrpassenger">Agent Analysis - Pax</option>
+                                    <option value="agentrevenue">Agent Analysis - Revenue</option>
+                                    <option value="classAnalysis">Class Analysis</option>
+                                    <option value="performance">Performance & Potential</option>
+                                    <option value="reporting">Reporting</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-sm-1 col-md-1">
+
+                            <div class="line">
+                                <button onclick="back()" class="buttonarrow" value="back"><i class="fa fa-angle-left" aria-hidden="true"></i> </button>
+                                <button onclick="front()" class="buttonarrow" value="front"><i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                            </div>
+                        </div>
+                 </div>
+              
+                <div class="col-lg-8 col-sm-8 col-md-8 padding-rigth-0">
+                    <div class="navbar-collapse collapse">
+                        <div class="col-lg-11 col-sm-11 col-md-11">
+                            <ul class="nav navbar-nav">
+
+                                @{
+                                    if (@Model.ISA)
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" id="ISA" onclick="cambiarISA()" style="background-color:rgb(191, 30, 45); color: white;" value="">Industry  <br /> Sales</button></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" id="ISA" value="" disabled>Industry  <br /> Sales</button></li>
+                                    }
+
+
+                                    if (@Model.IFSA)
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" id="IFSA" onclick="cambiarIFSA()" value="">Industry <br />Forward Slaes</button></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" id="IFSA" value="" disabled>Industry <br />Forward Slaes</button></li>
+                                    }
+
+
+                                    if (@Model.ASA)
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" value="">Airlanes <br /> Sales</button></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" value="" disabled>Airlanes <br /> Sales</button></li>
+                                    }
+
+
+                                    if (@Model.AFSA)
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" value="">Airlanes <br />Forward Sales</button></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="liQlik"><button class="buttonAPPs" value="" disabled>Airlanes <br />Forward Sales</button></li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="col-lg-1 col-sm-1 col-md-1 padding-rigth-0">
+                            @Html.Partial("_LoginPartial")
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    
+    @*<li><a href="#" data-toggle="tooltip" title="View" onclic k="muestraInfo()"><i class="glyphicon glyphicon-alert"></i></a></li>*@
+
+    <script>
+
+
+        function muestraInfo() {
+            $('#descriptiont').html("Note: all indicators are related to the issue year @DateTime.Now.AddMonths(-1).Year.");
+            $('#myModalt').modal('show');
+        }
+
+        function cambiarISA() {
+            window.location.href = "/eSmashNew/ISA/QlikGeneric"
+            //window.location.href = "/ISA/QlikGeneric"
+        }
+
+        function cambiarIFSA() {
+
+            window.location.href = "/eSmashNew/IFSA/QlikGeneric"
+            //window.location.href = "/IFSA/QlikGeneric"
+        }
+
+    </script>
+    <!-- Modal -->
+<div class="modal fade" id="myModalt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"> Notification </h4>
+            </div>
+            <div class="modal-body">
+                <code id="descriptiont"></code>
+            </div>
+            <div id="botonesTier" class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+}

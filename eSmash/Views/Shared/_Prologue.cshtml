@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<!--@*
+    Prologue by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*@
+-->
+<html>
+<head>
+
+    <title>eSmash - @ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    @* Cabeceras del mashup de qlik*@
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">*@
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="cleartype" content="on">
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/ipm.min.css")
+    @Styles.Render("~/Content/prologue/assets/css/main.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header">
+
+        <div class="top">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h2 style="color:white">eSmash</h2>
+                @*<h1 id="title">eSmash+</h1>
+                <p>Accelya &copy;</p>*@
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <!--
+
+                    Prologue's nav expects links in one of two formats:
+
+                    1. Hash link (scrolls to a different section within the page)
+
+                       <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+                    2. Standard link (sends the user to another page/site)
+
+                       <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+                -->
+                <ul>
+                    <li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
+                    <li><a href="#nr5" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Commercial solutions</span></a></li>
+                    <li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">eSmash</span></a></li>
+                    <li><a href="#login" id="contact-link" class="skel-layers-ignoreHref"><span class="glyphicon glyphicon-log-in" ></span>Start Session</a></li>
+                </ul>
+            </nav>
+
+
+        </div>
+
+        <div class="bottom">
+            <!-- Social Icons -->
+            <ul class="icons">
+                <li><a target="_blank" href="https://twitter.com/accelyagroup" class="icon fa fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/accelya" class="icon fa fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a target="_blank" href="http://w3.accelya.com/" class="icon fa fa-dribbble"><span class="label">WWW</span></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/company/accelya" class="icon fa fa-linkedin-square"><span class="label">Linkedin</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <ul class="copyright">
+            <li>&copy;@DateTime.Now.Year - Accelya. All rights reserved.</li>
+        </ul>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+
+    <!-- Scripts -->
+    <script src="~/Content/prologue/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/Content/prologue/assets/js/jquery.scrollzer.min.js"></script>
+    <script src="~/Content/prologue/assets/js/skel.min.js"></script>
+    <script src="~/Content/prologue/assets/js//util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="~/Content/prologue/assets/js//main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("~/Views/Shared/_Head.cshtml")
+    @RenderSection("styles", required: false)
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @RenderBody()
+
+    <!-- JavaScript -->
+    @Html.Partial("~/Views/Shared/_JavaScript.cshtml")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

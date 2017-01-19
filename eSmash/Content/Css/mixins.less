@@ -1,0 +1,14 @@
+﻿.primary-brand-colors(@i, @j) when (@i < @j + 1) {
+
+    @var: "brand-primary-@{i}";
+
+    .brand-primary-@{i} {
+        color: @@var;
+    }
+
+    .primary-brand-colors(@i + 1, @j);
+}
+
+.hidden() {
+    display: none;
+}

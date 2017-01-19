@@ -1,0 +1,131 @@
+﻿@import "../variables.less";
+@import "../mixins.less";
+
+@qlik-graph-height: 300px;
+
+.bottom-line() {
+    border-bottom: 1px solid @gray-light;
+}
+
+button.clear-selections {
+    margin-top: @base-padding;
+}
+
+div {
+
+    .qlik-container {
+        padding: 30px 10px 10px 10px;
+    }
+
+    .qlik-graph-shorter {
+        height: @qlik-graph-height - 200px;
+    }
+
+    .qlik-graph-short {
+        height: @qlik-graph-height - 100px;
+    }
+
+    .qlik-graph {
+        height: @qlik-graph-height;
+    }
+
+    .qlik-graph-tall {
+        height: (@qlik-graph-height + 100px);
+    }
+
+    .qlik-graph-taller {
+        height: (@qlik-graph-height + 400px);
+    }
+
+    .qlik-graph-dashboard {
+        height: 210px;
+    }
+
+    .filter-panel-hidden {
+        .hidden();
+        padding-top: @base-padding;
+        padding-bottom: @base-padding;
+        .bottom-line;
+    }
+
+    .filter-panel-selector {
+        margin: 0 auto;
+        width: auto;
+        padding-top: @base-padding;
+    }
+}
+
+.current-selection-panel {
+
+    height: 75px;
+    .bottom-line;
+
+    &:empty:before {
+        content: "There are no selections";
+        font-size: 14px;
+        font-style: italic;
+        opacity: 0.5;
+    }
+
+    > .current-selection {
+        float: left;
+        width: 150px;
+        padding: 3px;
+        margin: 2px;
+        border-radius: 3px;
+        border: 1px solid @gray-light;
+
+        .current-selection-title,
+        .current-selection-content
+         {
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            width: calc(100% - 10px);
+        }
+    }
+
+    .current-selection-header {
+        font-weight: bold;
+    }
+}
+
+.filter-panel-vertical {
+
+    .current-selection-panel {
+
+        height: auto;
+        padding-bottom: @base-padding;
+        border-bottom: none;
+        
+        .current-selection {
+            float: none;
+            width: auto;
+            border: 0;
+            padding: 3px;
+            margin: 2px;
+            border-radius: 0;
+            .bottom-line;
+        }
+    }
+
+    .filter-panel-selector {
+
+        padding-top: @base-padding - 5;
+        padding-bottom: @base-padding - 5;
+        .bottom-line;
+    }
+
+    &.filter-panel-single .filter-panel-selector {
+
+        height: 80vh;
+    }
+
+    &.filter-panel-multiple .filter-panel-selector {
+
+        height: @qlik-graph-height;
+    }
+}

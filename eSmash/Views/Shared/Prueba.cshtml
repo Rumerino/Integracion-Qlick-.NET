@@ -1,0 +1,60 @@
+﻿@model eSmash.Models.View.QlikApplication
+@{
+    var routeValues = @HttpContext.Current.Request.RequestContext.RouteData.Values;
+
+    var themeName = routeValues.ContainsKey("theme")
+        ? routeValues["theme"].ToString().ToLower()
+        : "default";
+
+    var addCssTheme = themeName != "default";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("~/Views/Shared/_Head.cshtml")
+    <!-- Qlik Sense mashup specific -->
+    @Styles.Render("~/Content/qlik")
+    <!-- Styles -->
+    @Styles.Render("~/Content/css/demo")
+    @RenderSection("styles", required: false)
+    @if (addCssTheme)
+    {
+        @Styles.Render("~/Content/css/theme" + themeName)
+    }
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <!-- Modal section: should go before "canvas-container" to display correctly -->
+    @Html.Partial("~/Views/Shared/ErrorModal.cshtml")
+    @RenderSection("modal", required: false)
+    <!-- Offcanvas filter panel -->
+    @Html.Partial("~/Views/Shared/FilterPanelOffcanvas.cshtml")
+    <!-- Offcanvas content container -->
+    <div id="canvas-container">
+        <!-- Navbar -->
+
+        <div id="intro-header">
+            <div class="container-fluid">
+                @RenderSection("intro_header", required: false)
+            </div>
+        </div>
+        <div class="container-fluid body-content" data-qlik-app="@Model.App.Id">
+            @RenderBody()
+        </div>
+        <!-- Sticky footer for small devices -->
+        
+        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+    </div>
+    <!-- Scripts -->
+    @* IMPORTANT: list.js gives an error if it is loaded after Qlik's require.js *@
+    @Scripts.Render("~/bundles/list.js")
+    <!-- Qlik require.js Desktop version -->
+    @Scripts.Render("~/bundles/qlik/require.js")
+    @Html.Partial("~/Views/Shared/_JavaScript.cshtml")
+    @Scripts.Render("~/bundles/qlik")
+    @Scripts.Render("~/bundles/demo")
+    @RenderSection("scripts", required: false)
+    <!-- Current selection template -->
+    @Html.Partial("~/Views/Shared/CurrentSelectionOffcanvasTemplate.cshtml")
+</body>
+</html>

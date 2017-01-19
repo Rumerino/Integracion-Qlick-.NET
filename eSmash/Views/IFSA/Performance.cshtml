@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Analytics";
+    Layout = "~/Views/Shared/QlikResources.cshtml";
+}
+@section intro_header {
+    @*@Html.Partial("~/Views/Demo3/IntroHeader.cshtml", description)*@
+}
+@section modal {
+    @Html.Partial("~/Views/Shared/DataExportModal.cshtml")
+}
+
+<div class="row qlik-container" id="bodyrow">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+  
+            <div class="col-md-2  col-lg-2 col-sm-6 ">
+                <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/RevenueShare.png" /></div>
+                
+                <div class="col-md-12  col-lg-12 col-sm-12">
+                    <div style="height:3em;width:20em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj11"].Id"></div>
+                </div>
+                <div class="col-md-12  col-lg-12 col-sm-12">
+                    <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj12"].Id"></div>
+                </div>
+            </div>
+        <div class="col-md-2  col-lg-2 col-sm-6 ">
+           <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/Revenue.png" /></div>
+            
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em;" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj21"].Id"></div>
+            </div>
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj22"].Id"></div>
+            </div>
+        </div>
+        <div class="col-md-2  col-lg-2 col-sm-6 ">
+            <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/PaxShare.png" /></div>
+            
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em;" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj31"].Id"></div>
+            </div>
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj32"].Id"></div>
+            </div>
+        </div>
+        <div class="col-md-2  col-lg-2 col-sm-6 ">
+            <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/Passengers.png" /></div>
+            
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em;" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj41"].Id"></div>
+            </div>
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj42"].Id"></div>
+            </div>
+        </div>
+        <div class="col-md-2  col-lg-2 col-sm-6 ">
+            <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/Yield Industry.png" /></div>
+            
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em;" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj51"].Id"></div>
+            </div>
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj52"].Id"></div>
+            </div>
+        </div>
+        <div class="col-md-2  col-lg-2 col-sm-6 ">
+            <div class="qlik-graph-shorter  col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " style="height:5em"><img style="width: 250px;" src="~/Content/Image/Pax Yield.png" /></div>
+
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em;" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj61"].Id"></div>
+            </div>
+            <div class="col-md-12  col-lg-12 col-sm-12">
+                <div style="height:3em;width:16em" class="qlik-graph-shorter col-md-7  col-lg-7 col-sm-7 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 " data-qlik-action="load" data-qlik-object="@Model.Sheet["obj62"].Id"></div>
+            </div>
+        </div>
+
+        </div>
+
+  
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-md-12  col-lg-12 col-sm-12">
+                    <div id="obj7" class="qlik-graph-tall" data-qlik-action="load" data-qlik-object="@Model.Sheet["obj7"].Id"></div>
+                </div>
+                <div class="col-md-offset-10 col-md-12 col-lg-offset-10 col-lg-12 col-sm-offset-12 col-sm-12">
+                    <button title="Exports data as XLSX" type="button" class="btn btn-default btn-sm" data-qlik-export="OOXML" data-qlik-file="MashupDemo" data-qlik-target="#obj7">
+                        <img id="down" style="width:2.5em; height:2.5em; border:hidden;  opacity:0.9" src="~/Content/Image/download.png" />
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-md-12  col-lg-12 col-sm-12">
+                    <div id="obj8" class="qlik-graph-tall" data-qlik-action="load" data-qlik-object="@Model.Sheet["obj8"].Id"></div>
+                </div>
+                <div class="col-md-offset-10 col-md-12 col-lg-offset-10 col-lg-12 col-sm-offset-12 col-sm-12">
+                    <button title="Exports data as XLSX" type="button" class="btn btn-default btn-sm" data-qlik-export="OOXML" data-qlik-file="MashupDemo" data-qlik-target="#obj8">
+                        <img id="down" style="width:2.5em; height:2.5em; border:hidden;  opacity:0.9" src="~/Content/Image/download.png" />
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>

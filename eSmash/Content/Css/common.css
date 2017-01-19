@@ -1,0 +1,42 @@
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.accelya-logo{width:30px}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #5d5d5d;
+}
+
+.input-group.date-resize {margin-right:69px}
+
+.padding-top-5{padding-top:5px}
+.padding-top-10{padding-top:10px}
+.padding-top-15{padding-top:15px}
+.padding-top-20{padding-top:20px}
+
+.margin-top-5{margin-top:5px}
+.margin-top-10{margin-top:10px}
+.margin-top-15{margin-top:15px}
+.margin-top-20{margin-top:20px}
+
+.pointer{cursor:pointer}
+
+.separadorLayouts {
+    width:80%;  
+    position:relative;
+    left:15px;
+}
+
+.validation-summary-errors>ul {padding-left:0}
+.validation-summary-errors>ul>li {list-style-type:none}
+
+.thumbnail-fixed-height {height: 185px}
+
+.table-rounded{border-radius:4px}
+
+.footer-accelya {border-top: 1px solid #ddd;padding: 10px 0;color:#999}
+.footer-margin-top-100 {margin-top:100px}
+
+.icon-info {position: absolute;top: 30px;right: 0px}

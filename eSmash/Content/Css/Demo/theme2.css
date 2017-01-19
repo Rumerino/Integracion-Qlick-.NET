@@ -1,0 +1,43 @@
+﻿/*.page-title {
+
+    color: @brand-primary-1;
+}*/
+@media (min-width: 768px) {
+  .page-title {
+    display: none;
+  }
+  #intro-header {
+    display: block;
+    background: url("../../Images/intro_header.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 255px;
+    margin-top: 50px;
+    color: #fff;
+    padding-top: 15px;
+    border-bottom: 3px solid #4477AA;
+  }
+  #intro-header .page-title {
+    display: inherit;
+  }
+  div.body-content {
+    padding-top: 0;
+  }
+}
+.page-subtitle {
+  font-style: italic;
+  background: #4C5589;
+  opacity: 0.6;
+  width: 700px;
+  padding: 15px;
+  margin: 0 auto;
+  border-radius: 6px;
+  font-size: 20px;
+}
+.page-subtitle span {
+  line-height: 2em;
+}
+.navbar-default {
+  border-bottom: 3px solid #4477aa;
+}
+/*# sourceMappingURL=theme2.css.map */

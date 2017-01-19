@@ -1,0 +1,12 @@
+﻿@model string
+
+<h2 class="page-title">@ViewBag.Title</h2>
+
+@if (!String.IsNullOrEmpty(@Model)) {
+
+    var subtitle = new HtmlString(@Model);
+
+    <div class="page-subtitle text-center">
+        @subtitle
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@model eSmash.Models.QlikModel
+@{
+    ViewBag.Title = "Config";
+    Layout = "~/Views/Shared/_layoutQlik.cshtml";
+    var description = "In Reporting shown a more detailed analysis about "
+        + "sales, budgets and sales margin base on the basket ítem.";
+}
+
+
+<h2>Please Wait</h2>
+
+
+
+@section scripts {
+    <script src="~/Scripts/jquery-2.2.3.js"></script>
+    <script src="~/Scripts/qlik-session.js"></script>
+    <script>
+
+        QlikSession.setHtmlElementWithTicket('<img src="@(Model.url)/content/Default/trigger.png?QlikTicket=@Model.ticket" />');
+        QlikSession.setRedirectionUrl("@Url.Action("QlikGeneric", "ISA")");
+        QlikSession.run();
+
+    </script>
+
+}

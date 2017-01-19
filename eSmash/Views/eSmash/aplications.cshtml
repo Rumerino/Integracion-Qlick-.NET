@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "aplications";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<br />
+<style>
+    #appParraf {
+        color: grey;
+        font-family: courier;
+        font-size: 120%;
+        margin-top: 3%;
+        width: 90%;
+    }
+
+    #app1 {
+    margin-top : 20%;
+    margin-bottom : 15%;
+    box-shadow: 5px 5px 5px #666;
+    -moz-box-shadow: 5px 5px 5px #666;
+    -webkit-box-shadow: 5px 5px 5px #666;
+
+}
+    #app2 {
+        margin-top : 20%;
+         margin-bottom : 15%;
+    box-shadow: 5px 5px 5px #666;
+    -moz-box-shadow: 5px 5px 5px #666;
+    -webkit-box-shadow: 5px 5px 5px #666;
+
+}
+</style>
+<div class="row">
+    <div  class="col-lg-offset-1 col-md-offset-1  col-lg-5 col-sm-10">
+
+        <div id="app1" style="width: 400px; height: 400px;">
+            <img style="width: 400px;" src="~/Content/Image/d.png" />
+            <center><p id="appParraf">Sales and Market Share Analitycs for Airlines</p></center>
+            <a href="@Url.Action("appAccount", "eSmash", new { })"><img id="smash" style="float:right; display: none;" src="~/Content/Image/Monitoring1.png" /></a>
+            @*<img id="smash" style="float:right; display: none;" src="~/Content/Image/Monitoring1.png" />*@
+        </div>
+
+    </div>
+    <div  class="col-lg-offset-1 col-md-offset-1 col-md-5 col-lg-5 col-sm-10">
+        <div id="app2" style="width: 400px; height: 400px;">
+            <img style="width: 400px;" src="~/Content/Image/este.png" />
+            <center><p id="appParraf">Ancillary Sales Analitycs for Airlines</p></center>
+            <a href="@Url.Action("appAccount", "eSmash", new { })"><img id="ancillary" style="float:right; display: none;" src="~/Content/Image/Monitoring1.png" /></a>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        Image()
+    });
+
+    function Image() {
+        $.ajax({
+            url: "@Url.Action("loadImage", "eSmash")",
+            dataType: "json",
+            type: "POST",
+            success: function (data) {
+                var n = data
+                //console.debug(n)
+                switch (n) {
+                    case "1":
+                        //$('#smash').prepend('<img src="~/content/image/esmash_plus.png" />');
+                        //$('#ancillary').prepend('<img src="~/content/image/esmash_plus.png" />');
+                        $('#smash').show()
+                        $('#ancillary').show()
+                        break;
+                    case "2":
+                        $('#smash').show()
+                        break;
+                    case "3":
+                        $('#ancillary').show()
+                        break;
+
+                    
+                }
+
+            },
+            error: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    }
+
+    @*$("#smash").click(function () {
+        $.ajax({
+            url: "@Url.Action("appAccount")",
+            success: function (data) {
+                //alert("Rows deleted");
+            },
+            error: function (a, b, c) {
+
+            }
+        });
+    });
+
+    $("#ancillary").click(function () {
+        $.ajax({
+            url: "@Url.Action("ppAccount")",
+            success: function (data) {
+                //alert("Rows deleted");
+            },
+            error: function (a, b, c) {
+
+            }
+        });
+    });*@
+</script>

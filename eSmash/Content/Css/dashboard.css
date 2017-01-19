@@ -1,0 +1,27 @@
+﻿.block-xs {
+    width: 310px;
+}
+div.loading {
+    margin-top: 10%;
+}
+#iframe-container {
+
+    position: absolute;
+    height: calc(100% - 70px);
+    min-height: 640px;
+    width: 100%;
+
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}
+.iframe-selector-menu {
+    height: 60px;
+    padding-top: 15px;
+}
+
+#iframe-container iframe {
+    height: 100%;
+    width: 100%;
+}

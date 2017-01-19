@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("~/Views/Shared/_Head.cshtml")
+
+    <!-- Qlik Sense mashup specific -->
+    @Styles.Render("~/Content/qlik")
+
+    @RenderSection("styles", required: false)
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @RenderBody()
+
+    <!-- JavaScript -->
+    @Scripts.Render("~/bundles/qlik/require.js")
+    @Html.Partial("~/Views/Shared/_JavaScript.cshtml")
+
+    <!-- Qlik Sense mashup specific -->
+    @*<script src="http://localhost:4848/resources/assets/external/requirejs/require.js"></script>*@
+    @Scripts.Render("~/bundles/qlik")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

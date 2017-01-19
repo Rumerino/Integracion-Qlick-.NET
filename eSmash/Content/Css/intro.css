@@ -1,0 +1,79 @@
+﻿body {
+  color: #808285;
+  padding-bottom: 90px;
+}
+.footer {
+  width: 100%;
+  height: 90px;
+  padding-top: 15px;
+  border-top: 1px solid #e7e7e7;
+}
+.bottom-sticked {
+  /*position: absolute;*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.copyright {
+  padding-top: 30px;
+}
+.not-displayed {
+  display: none;
+}
+#error-modal .modal-header {
+  color: #ff0000;
+}
+.non-responsive .navbar-nav > li {
+  float: left;
+}
+.non-responsive .navbar-nav.navbar-right {
+  float: right;
+}
+.navbar-brand-company {
+  float: right;
+  padding: 10px 5px 5px 15px;
+}
+.navbar-brand-company img {
+  height: 30px;
+}
+#intro-header {
+  display: none;
+}
+div.bi-core-logo {
+  color: #faa73f;
+}
+div.bi-core-logo p {
+  font-size: 25px;
+}
+div.bi-core-logo span {
+  font-size: 80px;
+}
+div.intro-container {
+  width: 640px;
+  margin: 5% auto;
+}
+div.intro-container > .bi-core-logo {
+  width: 150px;
+  border-right: 2px solid #faa73f;
+}
+div.intro-container > .bi-core-logo,
+div.intro-container > .content {
+  float: left;
+  padding: 15px;
+}
+div.intro-container > .content {
+  padding-top: 0;
+  width: 475px;
+}
+div.intro-container .content li {
+  padding-top: 5px;
+}
+.qlik-primary-1 {
+  color: #628c47;
+}
+a,
+a:hover {
+  color: inherit;
+}
+/*# sourceMappingURL=intro.css.map */

@@ -1,0 +1,130 @@
+﻿@using eSmash.Models
+
+@{
+    Layout = "~/Views/Shared/_Prologue.cshtml";
+}
+
+@{
+    ViewBag.Title = "Accelya";
+}
+
+@{
+    string claseimg = "one";
+    if (Request.Url.PathAndQuery.ToUpper().Contains("DEMO"))
+    {
+        claseimg = "onedemo";
+    }
+}
+
+<link href="@Url.Content("~/Content/prologue/Assets/css/main.css")" rel="stylesheet" type="text/css" />
+
+<section id="top" class="@claseimg dark cover">
+    <div class="container">
+        <header></header>
+        <footer></footer>
+    </div>
+</section>
+
+<section id="top" class="two">
+    <div class="container" >
+        <header>
+
+            @{if (ViewBag.ErrorMessage != null)
+                {
+                    <script language="javascript">
+                        alert('@ViewBag.ErrorMessage');
+                    </script>
+                }
+            }
+            <img class="index-logo" alt="Accelya" src="~/content/image/accelya255x100.png" />
+        </header>
+        <p>
+            Accelya is a leading provider of financial, commercial and analytics solutions to the Airline and Travel industry.
+            Accelya helps airlines integrate and simplify their financial processes; to better manage costs, risks, revenue leakages, cash flows, profitability and overall business performance. Accelya partners with airlines right from the time a ticket or an air waybill is issued, all the way through its entire financial lifecycle and until the data is converted to actionable intelligence.
+            Accelya’s commercial solutions help airlines steer sales and strengthen their business relationship with travel agents. It provides insights on airline sales performance, agent performance, route performance and instantly identifies potential for growth. It also helps airlines manage agent incentive program for higher agent satisfaction.
+            Backed by solid data, Accelya’s analytics and consulting services enable airlines to take informed decisions by forecasting market trends, identifying revenue opportunities and optimising costs.
+            With over 200 airline customers, our operations are spread across 9 countries and Accelya employs over 2000 professionals worldwide.
+            Accelya has been voted as ‘Reader’s Choice Company 2015’and ‘IT Company of the Year 2014’ at Air Transport News Awards and ‘Information Technology for the Air Cargo Industry’ at ACW World Air Cargo Awards 2014.
+
+        </p>
+
+        <p><a class="btn btn-default" target="_blank" href="http://w3.accelya.com/">Learn more &raquo;</a></p>
+
+    </div>
+
+</section>
+
+<section id="nr5" class="two">
+    <div class="container">
+        <header>
+            <h2><strong>About Commercial Solutions: </strong><br /><br /></h2>
+        </header>
+        <p>
+            Accelya’s commercial solutions help airlines and travel agencies steer sales and strengthen their business relationship with their business partners. It provides insights on airline sales performance, agent performance, route performance and instantly identifies potential for growth. It also helps airlines manage agent incentive program for higher agent satisfaction. Travel Agents and Travel Management Companies can monitor their sales performance using highly accurate flown information with Accelya’s sales analytics solution.
+        </p>
+
+    </div>
+</section>
+<!-- About Me -->
+<section id="about" class="three">
+    <div class="container">
+
+        <header>
+            <h2>Welcome to <strong>eSmash.</strong><br /><br /></h2>
+        </header>
+        <p>
+            
+            eSmash is designed to help airline sales managers steer sales. It tracks airline sales performance, agent performance, route performance and instantly identifies potential for growth. With eSmash, airline sales managers can accurately measure their market share and agent performance vis a vis the industry; get 360 degree view of their year on- year sales across all channels of distribution; and instantly access their forward sales information for timely action. eSmash includes three modules: Market Share Analysis, Airline’s Own Sales Analysis and Forward Sales Analysis, which help airlines take control of their sales performance. Over 120 airlines globally rely on eSmash to steer their sales.
+
+        </p>
+        <p><a class="btn btn-default" target="_blank" href="http://w3.accelya.com/">Learn more &raquo;</a></p>
+    </div>
+</section>
+
+<!-- Login -->
+<section id="login" class="five">
+
+
+    <div class="container">
+        <header>
+            <h2> Start Session </h2>
+        </header>
+
+        <form action="@Url.Action("login", "eSmash")" class="form-horizontal" method="post" role="form" novalidate="novalidate">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <section id="loginForm">
+                        <input name="__RequestVerificationToken" type="hidden" value="Kk5kQ7YMXdInN8J2xKNqwuWfhiAlxVV8SZ4tUzmBl3LN6cttlXdd8XyzT5Yrnr7ghSQ-sVE4rOS6RgmfBU48EGk5eQPxLvX6wwPMod2KqYk1">
+                        <div class="form-group">
+                            <label class="col-md-3 " for="Login">User</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="login" name="login" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Login" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 " for="Password">Password</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="password" name="password" type="password">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-default">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                @*<input data-val="true" data-val-number="The field SSO_Action must be a number." id="SSO_Action" name="SSO_Action" type="hidden" value="">
+                    <input data-val="true" data-val-number="The field SSO_IdApp must be a number." id="SSO_IdApp" name="SSO_IdApp" type="hidden" value="">
+                    <input data-val="true" data-val-number="The field SSO_IdUser must be a number." id="SSO_IdUser" name="SSO_IdUser" type="hidden" value="">
+                    <input id="SSO_Signature" name="SSO_Signature" type="hidden" value="">
+                    <input id="SSO_TimeStamp" name="SSO_TimeStamp" type="hidden" value="">*@
+            </div>
+        </form>
+    </div>
+</section>
+

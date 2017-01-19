@@ -1,0 +1,45 @@
+﻿@import "base.less";
+div.bi-core-logo {
+
+    color: @brand-primary-5;
+
+    p {
+        font-size: 25px;
+    }
+    span {
+        font-size: 80px;
+    }
+}
+div.intro-container {
+
+    @container-width: 640px;
+    @logo-witdth: 150px;
+
+    width: @container-width;
+    margin: 5% auto;
+
+    > .bi-core-logo {
+        width: @logo-witdth;
+        border-right: 2px solid @brand-primary-5;
+    }
+
+    > .bi-core-logo, > .content {
+        float: left;
+        padding: @base-padding;
+    }
+
+    > .content {
+        padding-top: 0;
+        width: ((@container-width - @logo-witdth) - @base-padding);
+    }
+
+    .content li {
+        padding-top: 5px;
+    }
+}
+.qlik-primary-1 {
+    color: @qlik-primary-1;
+}
+a, a:hover {
+    color: inherit;
+}

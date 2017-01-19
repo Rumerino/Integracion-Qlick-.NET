@@ -1,0 +1,45 @@
+﻿@model eSmash.Models.View.QlikApplication
+@{
+    var filterCssClass = @Model.FilterPanels.Count() > 1
+        ? "filter-panel-multiple"
+        : "filter-panel-single";
+}
+<style>
+
+</style>
+<nav id="qlik-filters-menu" class="navmenu navmenu-fixed-left offcanvas " role="navigation">
+    <div class="offcanvas-header">
+        <div>
+            <button type="button" class="close" data-toggle="offcanvas" data-target="#qlik-filters-menu" aria-label="Close" style="margin-top: 20px;">
+                <span aria-hidden="true" class="offcanvas-switch-close"></span>
+            </button>
+        </div>
+    </div>
+    <div class="offcanvas-body filter-panel-vertical @filterCssClass ">
+        <!-- current selections -->
+        <div>
+            <h4>Current selections</h4>
+            <div id="qlik-filter-menu" class="qlik-filter ">
+                <div class="current-selection-panel " data-qlik-content="current-selections" data-qlik-template="#current-selection-template">@* este espacio debe estar vacío y sin salto de línea porque el "placeholder" se añade con CSS *@</div>
+            </div>
+        </div>
+        @{
+            var n = 0;
+        <!-- filters -->
+            foreach (var filterPanel in @Model.FilterPanels)
+            {
+                if (n < 3)
+                {
+                    <div class="filter-panel-selector" data-qlik-action="load" data-qlik-object="@filterPanel.Id" style="height: 100px !important"></div>
+                }
+                else
+                {
+                    <div class="filter-panel-selector" data-qlik-action="load" data-qlik-object="@filterPanel.Id" style="height: 800px !important"></div>
+                }
+
+                n++;
+            }
+
+        }
+    </div>
+</nav>

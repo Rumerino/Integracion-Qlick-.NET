@@ -1,0 +1,21 @@
+﻿@{
+
+    var modalBody =
+          "<div class=\"text-center\">"
+        + "<div class=\"spinner text-mutted hidden\">"
+        + "<span class=\"fa fa-circle-o-notch fa-spin fa-3x fa-fw\"></span><br/>"
+        + "Exporting ..."
+        + "</div>"
+        + "<div class=\"export-result\">"
+        + "<p>Data exported successfully<p/>"
+        + "<a href=\"\" class=\"btn btn-default btn-sm\" target=\"_blank\">"
+        + "<span class=\"fa fa-download\"></span> Download"
+        + "</a>"
+        + "</div>"
+        + "</div>";
+
+    var modalValues = new eSmash.Models.View.Modal(
+        "data-export-modal", "Data export", modalBody);
+    modalValues.HtmlClass = "modal-sm";
+}
+@Html.Partial("~/Views/Shared/Modal.cshtml", modalValues)

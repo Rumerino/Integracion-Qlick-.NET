@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<style type="text/css">
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li a {
+        color: dimgrey !important;
+        font-weight: 600;
+    }
+
+
+    /*darkorange*/
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <span class="fa fa-bar-chart"></span> Home
+            </a>
+            
+        </div>
+        <div class="hidden-xs hidden-sm">
+            @Html.Partial("~/Views/ISA/NavBarSelectionTools.cshtml")
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <div class="navbar-brand-company hidden-xs">
+                <a title="log Out" href="" target="_new">
+                    
+                </a>
+            </div>
+            <div class="navbar-brand-company hidden-xs">
+                <a title="www.accelya.com" href="https://www.accelya.com" target="_new">
+                    <img src="@Url.Content("~/Content/Image/accelya_hub_small.png")" />
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                @RenderSection("page_sections")
+                @*<li>
+                    <a href="#" data-toggle="modal" data-target="#glossary-modal">
+                        <span class="fa fa-question-circle"></span> Glossary
+                    </a>
+                </li>*@
+            </ul>
+            
+           
+
+           
+
+        </div>
+
+    </div> <!-- navbar-header -->
+</nav> <!-- navbar -->
